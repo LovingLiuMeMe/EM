@@ -1,11 +1,12 @@
-cn/lovingliu/aspect/SchoolParkAuthorize.class
-cn/lovingliu/controller/superadmin/SuperAdminController.class
+cn/lovingliu/controller/equipmentHeader/EHController.class
 cn/lovingliu/controller/file/FileController.class
 cn/lovingliu/controller/user/UserController.class
 cn/lovingliu/controller/BaseController.class
+cn/lovingliu/controller/equipmentManager/EMController.class
 cn/lovingliu/handle/ExceptionHandle.class
 cn/lovingliu/config/WebMvcConfig.class
 cn/lovingliu/config/SwaggerConfig.class
-cn/lovingliu/controller/admin/AdminController.class
 cn/lovingliu/controller/common/CommonController.class
 cn/lovingliu/Application.class
+cn/lovingliu/aspect/EMAuthorize.class
+cn/lovingliu/config/CorsConfig.class

@@ -1,7 +1,7 @@
 cn/lovingliu/pojo/Record.class
 cn/lovingliu/pojo/vo/RecordVO.class
+cn/lovingliu/pojo/bo/EquipmentBO.class
 cn/lovingliu/pojo/bo/RecordBO.class
 cn/lovingliu/pojo/bo/UserBO.class
 cn/lovingliu/pojo/User.class
-cn/lovingliu/pojo/Pictures.class
-cn/lovingliu/pojo/vo/PictureVO.class
+cn/lovingliu/pojo/Equipment.class

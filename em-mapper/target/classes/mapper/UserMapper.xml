@@ -237,4 +237,14 @@
     from em_user
     where type = #{userType}
   </select>
+  <update id="increaseInfractionsCount" parameterType="int">
+    update em_user
+    set infractions_count = infractions_count + 1
+    where id = #{id}
+  </update>
+  <update id="decreaseInfractionsCount" parameterType="int">
+    update em_user
+    set infractions_count = infractions_count - 1
+    where id = #{id} and infractions_count > 0
+  </update>
 </mapper>

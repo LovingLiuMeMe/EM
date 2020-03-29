@@ -1,6 +1,5 @@
-/Users/lovingliu/Downloads/外包/schoolpark/schoolpark-mapper/src/main/java/cn/lovingliu/mapper/RecordMapper.java
-/Users/lovingliu/Downloads/外包/schoolpark/schoolpark-mapper/src/main/java/cn/lovingliu/mapper/RecordMapperCustom.java
-/Users/lovingliu/Downloads/外包/schoolpark/schoolpark-mapper/src/main/java/cn/lovingliu/mapper/PicturesMapper.java
-/Users/lovingliu/Downloads/外包/schoolpark/schoolpark-mapper/src/main/java/cn/lovingliu/mapper/UserMapper.java
-/Users/lovingliu/Downloads/外包/schoolpark/schoolpark-mapper/src/main/java/cn/lovingliu/config/MybatisConfig.java
-/Users/lovingliu/Downloads/外包/schoolpark/schoolpark-mapper/src/main/java/cn/lovingliu/component/InitSupperAdmin.java
+/Users/lovingliu/Downloads/外包/qicaiguanli/code/em/em-mapper/src/main/java/cn/lovingliu/config/MybatisConfig.java
+/Users/lovingliu/Downloads/外包/qicaiguanli/code/em/em-mapper/src/main/java/cn/lovingliu/mapper/UserMapper.java
+/Users/lovingliu/Downloads/外包/qicaiguanli/code/em/em-mapper/src/main/java/cn/lovingliu/mapper/EquipmentMapper.java
+/Users/lovingliu/Downloads/外包/qicaiguanli/code/em/em-mapper/src/main/java/cn/lovingliu/component/InitUser.java
+/Users/lovingliu/Downloads/外包/qicaiguanli/code/em/em-mapper/src/main/java/cn/lovingliu/mapper/RecordMapper.java

@@ -1,9 +1,9 @@
 cn/lovingliu/service/impl/FileServiceImpl.class
 cn/lovingliu/service/UserService.class
-cn/lovingliu/service/impl/PictureServiceImpl.class
-cn/lovingliu/service/PictureService.class
+cn/lovingliu/service/impl/EquipmentServiceImpl.class
+cn/lovingliu/service/common/BaseService.class
 cn/lovingliu/service/impl/RecordServiceImpl.class
 cn/lovingliu/service/impl/UserServiceImpl.class
 cn/lovingliu/service/FileService.class
-cn/lovingliu/service/BaseService.class
+cn/lovingliu/service/EquipmentService.class
 cn/lovingliu/service/RecordService.class
