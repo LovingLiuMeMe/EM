@@ -1,0 +1,6 @@
+cn/lovingliu/mapper/PicturesMapper.class
+cn/lovingliu/mapper/RecordMapperCustom.class
+cn/lovingliu/mapper/RecordMapper.class
+cn/lovingliu/mapper/UserMapper.class
+cn/lovingliu/component/InitSupperAdmin.class
+cn/lovingliu/config/MybatisConfig.class

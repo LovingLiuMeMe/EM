@@ -1,0 +1,44 @@
+server:
+  port: 8001
+  tomcat:
+    uri-encoding: UTF-8
+  jetty:
+    max-http-post-size: 80KB
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource # 数据源类型
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/em?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 30000       # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
+      minimum-idle: 5                 # 最小连接数
+      maximum-pool-size: 20           # 最大连接数
+      auto-commit: true               # 自动提交
+      idle-timeout: 600000            # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      pool-name: DateSourceHikariCP   # 连接池名字
+      max-lifetime: 1800000           # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
+      connection-test-query: SELECT 1 # 链接时测试的Sql语句
+  # 对上传文件进行限制
+  servlet:
+    multipart:
+      max-file-size: 521000 # 文件上传大小限制 500K 200 * 1024
+      max-request-size: 521000 # 请求大小限制
+mybatis:
+  mapper-locations: classpath:mapper/*.xml # mapper xml文件所在路径 classpath: 指的时所有的resources 文件夹
+  type-aliases-package: cn.lovingliu.pojo # 实体类映射
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 将数据库执行语句打印出来（仅仅在控制台上）
+
+# 分页插件配置
+pagehelper:
+  helper-dialect: mysql # 方言
+  support-methods-arguments: true # 分页参数传参
+
+logging:
+  level:
+    root: info
+
+file:
+  upload-path: "/Users/lovingliu/Desktop/HFTEC/pictures"
