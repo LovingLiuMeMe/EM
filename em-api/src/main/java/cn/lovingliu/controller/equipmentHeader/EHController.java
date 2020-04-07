@@ -51,8 +51,7 @@ public class EHController implements BaseController {
     @ApiOperation(value = "修改器材负责人信息",notes = "修改器材负责人信息",httpMethod = "POST")
     @PostMapping("/info/update")
     public ServerResponse infoUpdate(@ApiParam(name = "user",value = "要修改的负责人信息",required = true)
-                                     @RequestParam(value = "user",required = true)
-                                             User user,HttpServletRequest request){
+                                         @RequestBody User user,HttpServletRequest request){
 
         String valueInCookie = CookieUtil.get(request,USER_COOKIE_KEY);
         User userInCookie = JsonUtils.jsonToPojo(valueInCookie,User.class);

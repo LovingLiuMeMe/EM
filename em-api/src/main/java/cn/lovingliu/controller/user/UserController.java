@@ -46,8 +46,7 @@ public class UserController implements BaseController {
     @ApiOperation(value = "修改用户信息",notes = "修改用户信息",httpMethod = "POST")
     @PostMapping("/info/update")
     public ServerResponse infoUpdate(@ApiParam(name = "user",value = "要修改的管理员信息",required = true)
-                                 @RequestParam(value = "user",required = true)
-                                  User user,HttpServletRequest request){
+                                     @RequestBody User user,HttpServletRequest request){
 
         String valueInCookie = CookieUtil.get(request,USER_COOKIE_KEY);
         User userInCookie = JsonUtils.jsonToPojo(valueInCookie,User.class);
@@ -69,9 +68,8 @@ public class UserController implements BaseController {
 
     @ApiOperation(value = "借用器材",notes = "借用器材",httpMethod = "POST")
     @PostMapping("/equipment/borrow")
-    public ServerResponse equipmentBorrow(@ApiParam(name = "record",value = "借用详情",required = true)
-                                 @RequestParam(value = "record",required = true)
-                                         RecordBO recordBO, HttpServletRequest request, BindingResult bindingResult){
+    public ServerResponse equipmentBorrow(@ApiParam(name = "recordBO",value = "借用详情",required = true)
+                                          @RequestBody RecordBO recordBO, HttpServletRequest request, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             throw new EMException(bindingResult.getFieldError().getDefaultMessage());
         }
@@ -91,7 +89,7 @@ public class UserController implements BaseController {
     }
 
     @ApiOperation(value = "查看借还记录列表",notes = "查看借还记录列表",httpMethod = "POST")
-    @PostMapping("/record/list")
+    @GetMapping("/record/list")
     public ServerResponse recordList(HttpServletRequest request){
         String valueInCookie = CookieUtil.get(request,USER_COOKIE_KEY);
         User userInCookie = JsonUtils.jsonToPojo(valueInCookie,User.class);

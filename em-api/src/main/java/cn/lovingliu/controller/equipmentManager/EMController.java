@@ -48,8 +48,7 @@ public class EMController implements BaseController  {
     @ApiOperation(value = "修改器材管理员信息",notes = "修改器材管理员信息",httpMethod = "POST")
     @PostMapping("/info/update")
     public ServerResponse infoUpdate(@ApiParam(name = "user",value = "要修改的管理员信息",required = true)
-                                     @RequestParam(value = "user",required = true)
-                                             User user,HttpServletRequest request){
+                                     @RequestBody User user,HttpServletRequest request){
 
         String valueInCookie = CookieUtil.get(request,USER_COOKIE_KEY);
         User userInCookie = JsonUtils.jsonToPojo(valueInCookie,User.class);
@@ -69,7 +68,7 @@ public class EMController implements BaseController  {
     }
 
     @ApiOperation(value = "根据记录状态查询列表",notes = "根据记录状态查询列表",httpMethod = "POST")
-    @PostMapping("/record/list")
+    @GetMapping("/record/list")
     public ServerResponse recordList(
             @ApiParam(name = "recordStatus",value = "借还记录状态",required = false)
             @RequestParam(value = "recordStatus",defaultValue = "0",required = false) Integer recordStatus,

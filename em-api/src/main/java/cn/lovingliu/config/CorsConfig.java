@@ -21,8 +21,8 @@ public class CorsConfig {
          * 后端要设置Access-Control-Allow-Origin为你的源地址，例如http://localhost:8088(前端页面的地址)，不能是*，
          * 而且还要设置header('Access-Control-Allow-Credentials: true');
          */
-        // corsConfiguration.addAllowedOrigin("http://127.0.0.1:8088"); // 该配置可设置多次
-
+        corsConfiguration.addAllowedOrigin("http://127.0.0.1:8000"); // 该配置可设置多次
+        corsConfiguration.addAllowedOrigin("http://localhost:8000");
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.addAllowedHeader("*"); // 2允许任何头
         corsConfiguration.addAllowedMethod("*"); // 3允许任何方法（post、get等）
