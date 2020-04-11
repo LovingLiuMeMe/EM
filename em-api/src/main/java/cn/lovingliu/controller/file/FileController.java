@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-
 /**
  * @Author：LovingLiu
  * @Description:
@@ -31,11 +29,5 @@ public class FileController {
     public ServerResponse create(MultipartFile file){
         String fileName = fileService.uploadImage(file);
         return ServerResponse.createBySuccess(fileName);
-    }
-    @ApiOperation(value = "上传多张图片",notes = "上传多张图片",httpMethod = "POST")
-    @PostMapping("/uploadImages")
-    public ServerResponse uploadImages(MultipartFile[] files){
-        List<String> fileNameList = fileService.uploadImages(files);
-        return ServerResponse.createBySuccess(fileNameList);
     }
 }

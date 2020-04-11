@@ -10,10 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class FileServiceImpl implements FileService {
@@ -32,21 +30,6 @@ public class FileServiceImpl implements FileService {
         }
         String fileName = uploadFile(UPLOADPATH,file);
         return fileName;
-    }
-
-    public List<String> uploadImages(MultipartFile[] files){
-        List<String> fileNameList = new ArrayList<>();
-        for(MultipartFile file:files){
-            String originalFilename = file.getOriginalFilename();
-            String fileType = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
-            boolean ifContain = Arrays.asList(IMAGETYPES).contains(fileType);
-            if(!ifContain){
-                throw new EMException(ExceptionCodeEnum.UPLOAD_FILE_TYPE_ERROR);
-            }
-            String fileName = uploadFile(UPLOADPATH,file);
-            fileNameList.add(fileName);
-        }
-        return fileNameList;
     }
 
     public boolean deleteImage(String fileName){
