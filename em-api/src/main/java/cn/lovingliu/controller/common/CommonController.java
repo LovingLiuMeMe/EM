@@ -38,7 +38,7 @@ public class CommonController implements BaseController {
 
     @ApiOperation(value = "用户登录",notes = "用户登录",httpMethod = "POST")
     @PostMapping("login")
-    public ServerResponse login(@RequestParam(value = "verifyCode",required = true) String verifyCode,
+    public ServerResponse login(// @RequestParam(value = "verifyCode",required = true) String verifyCode,
                                 @RequestParam(value = "telePhone",required = true) String telePhone,
                                 @RequestParam(value = "password",required = true) String password,
                                 HttpServletRequest request,
