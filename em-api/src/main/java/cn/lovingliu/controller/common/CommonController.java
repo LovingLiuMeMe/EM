@@ -1,7 +1,6 @@
 package cn.lovingliu.controller.common;
 
 import cn.lovingliu.component.RandomValidateCode;
-import cn.lovingliu.constant.SessionNames;
 import cn.lovingliu.controller.BaseController;
 import cn.lovingliu.exception.EMException;
 import cn.lovingliu.pojo.User;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Date;
 
@@ -45,14 +43,14 @@ public class CommonController implements BaseController {
                                 @RequestParam(value = "password",required = true) String password,
                                 HttpServletRequest request,
                                 HttpServletResponse response) {
-        if(StringUtils.isBlank(verifyCode)){
-            return ServerResponse.createByErrorMessage("验证码不能为空");
-        }
-        HttpSession session = request.getSession();
-        String verifyCodeInSession = (String) session.getAttribute(SessionNames.VERIFY_CODE_KEY);
-        if (verifyCodeInSession == null || !verifyCode.equalsIgnoreCase(verifyCodeInSession)){
-            return ServerResponse.createByErrorMessage("验证码错误");
-        }
+//        if(StringUtils.isBlank(verifyCode)){
+//            return ServerResponse.createByErrorMessage("验证码不能为空");
+//        }
+//        HttpSession session = request.getSession();
+//        String verifyCodeInSession = (String) session.getAttribute(SessionNames.VERIFY_CODE_KEY);
+//        if (verifyCodeInSession == null || !verifyCode.equalsIgnoreCase(verifyCodeInSession)){
+//            return ServerResponse.createByErrorMessage("验证码错误");
+//        }
         if(StringUtils.isBlank(telePhone)){
             return ServerResponse.createByErrorMessage("用户名为空");
         }
