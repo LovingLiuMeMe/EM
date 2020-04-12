@@ -114,7 +114,7 @@ public class EHController implements BaseController {
     }
 
     @ApiOperation(value = "采购新的器材",notes = "采购新的器材",httpMethod = "POST")
-    @GetMapping(value = "/equipment/create")
+    @PostMapping(value = "/equipment/create")
     public ServerResponse equipmentCreate(@ApiParam(name = "equipmentBO",value = "新建的器材信息",required = true)
                                           @RequestBody EquipmentBO equipmentBO, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
