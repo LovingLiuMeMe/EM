@@ -71,7 +71,7 @@ public class CommonController implements BaseController {
 
     @ApiOperation(value = "用户退出登录",notes = "用户退出登录",httpMethod = "POST")
     @PostMapping("logout")
-    public ServerResponse logout(@RequestBody User user, HttpServletResponse response) {
+    public ServerResponse logout(HttpServletResponse response) {
         CookieUtil.set(response,USER_COOKIE_KEY,null,0);
         return ServerResponse.createBySuccessMessage("退出登录");
     }
