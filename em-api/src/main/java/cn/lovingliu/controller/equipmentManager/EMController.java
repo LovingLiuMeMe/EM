@@ -1,5 +1,6 @@
 package cn.lovingliu.controller.equipmentManager;
 
+import cn.lovingliu.constant.UserType;
 import cn.lovingliu.controller.BaseController;
 import cn.lovingliu.page.PagedGridResult;
 import cn.lovingliu.pojo.User;
@@ -17,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author：LovingLiu
@@ -67,7 +70,7 @@ public class EMController implements BaseController  {
         }
     }
 
-    @ApiOperation(value = "根据记录状态查询列表",notes = "根据记录状态查询列表",httpMethod = "POST")
+    @ApiOperation(value = "根据记录状态查询列表",notes = "根据记录状态查询列表",httpMethod = "GET")
     @GetMapping("/record/list")
     public ServerResponse recordList(
             @ApiParam(name = "recordStatus",value = "借还记录状态",required = false)
@@ -81,6 +84,17 @@ public class EMController implements BaseController  {
 
         PagedGridResult pagedGridResult = recordService.recordList(recordStatus,page,pageSize);
         return ServerResponse.createBySuccess(pagedGridResult);
+    }
+
+    @ApiOperation(value = "查询用户列表",notes = "查询用户列表",httpMethod = "GET")
+    @GetMapping("/user/list")
+    public ServerResponse userList(){
+        List<User> teacherList = userService.getUserByType(UserType.TEACHER);
+        List<User> studentList = userService.getUserByType(UserType.STUDENT);
+        List<User> userList = new ArrayList<>();
+        userList.addAll(teacherList);
+        userList.addAll(studentList);
+        return ServerResponse.createBySuccess(userList);
     }
 
     @ApiOperation(value = "查看借还记录",notes = "查看借还记录",httpMethod = "GET")

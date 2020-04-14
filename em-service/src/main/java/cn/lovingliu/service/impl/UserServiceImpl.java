@@ -8,6 +8,8 @@ import cn.lovingliu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -53,5 +55,10 @@ public class UserServiceImpl implements UserService {
             msg = "加入黑名单成功,该用户将不能再租借任何器材！";
         }
         return ServerResponse.createBySuccessMessage(msg);
+    }
+
+    @Override
+    public List<User> getUserByType(Integer type) {
+        return userMapper.selectByType(type);
     }
 }
