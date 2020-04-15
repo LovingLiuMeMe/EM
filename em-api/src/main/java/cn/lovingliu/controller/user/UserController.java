@@ -1,11 +1,14 @@
 package cn.lovingliu.controller.user;
 
+import cn.lovingliu.constant.EquipmentStatus;
 import cn.lovingliu.constant.RecordStatus;
 import cn.lovingliu.controller.BaseController;
 import cn.lovingliu.exception.EMException;
+import cn.lovingliu.page.PagedGridResult;
 import cn.lovingliu.pojo.User;
 import cn.lovingliu.pojo.bo.RecordBO;
 import cn.lovingliu.response.ServerResponse;
+import cn.lovingliu.service.EquipmentService;
 import cn.lovingliu.service.RecordService;
 import cn.lovingliu.service.UserService;
 import cn.lovingliu.util.CookieUtil;
@@ -31,6 +34,9 @@ public class UserController implements BaseController {
 
     @Autowired
     private RecordService recordService;
+
+    @Autowired
+    private EquipmentService equipmentService;
 
 
     @ApiOperation(value = "获取教师/学生信息",notes = "获取教师/学生信息",httpMethod = "GET")
@@ -110,5 +116,16 @@ public class UserController implements BaseController {
                                           @RequestParam(value = "recordId",required = true)
                                                   Integer recordId){
         return recordService.changeRecordStatus(recordId, RecordStatus.WAIT_DEAL_CHECK);
+    }
+
+    @ApiOperation(value = "获取器材列表",notes = "获取器材列表",httpMethod = "GET")
+    @GetMapping(value = "/equipment/list")
+    public ServerResponse<PagedGridResult> equipmentList(@ApiParam(name = "page",value = "当前页码",required = false)
+                                                         @RequestParam(value = "page",defaultValue = "1") Integer page,
+
+                                                         @ApiParam(name = "pageSize",value = "每页显示的数量",required = false)
+                                                         @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize){
+        PagedGridResult pagedGridResult = equipmentService.equipmentList(EquipmentStatus.NORMAL,page,pageSize);
+        return ServerResponse.createBySuccess(pagedGridResult);
     }
 }
