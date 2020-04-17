@@ -94,7 +94,7 @@ public class UserController implements BaseController {
         return recordService.changeRecordStatus(recordId, RecordStatus.WAIT_RETURN_CHECK);
     }
 
-    @ApiOperation(value = "查看借还记录列表",notes = "查看借还记录列表",httpMethod = "POST")
+    @ApiOperation(value = "查看借还记录列表",notes = "查看借还记录列表",httpMethod = "GET")
     @GetMapping("/record/list")
     public ServerResponse recordList(HttpServletRequest request){
         String valueInCookie = CookieUtil.get(request,USER_COOKIE_KEY);
