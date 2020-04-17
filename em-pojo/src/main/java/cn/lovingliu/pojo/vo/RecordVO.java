@@ -30,6 +30,8 @@ public class RecordVO implements Serializable {
 
     private String userNumber;
 
+    private String equipmentName;
+
     private Date createdTime;
 
     private Date updatedTime;

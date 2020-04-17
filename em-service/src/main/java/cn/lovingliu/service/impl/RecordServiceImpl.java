@@ -83,9 +83,9 @@ public class RecordServiceImpl extends BaseService implements RecordService {
     }
 
     @Override
-    public ServerResponse<List<Record>> recordList(int userId) {
-        List<Record> recordList = recordMapper.selectByUserId(userId);
-        return ServerResponse.createBySuccess("获取成功",recordList);
+    public ServerResponse<List<RecordVO>> recordList(int userId) {
+        List<RecordVO> recordVOList = recordMapper.selectByUserId(userId);
+        return ServerResponse.createBySuccess("获取成功",recordVOList);
     }
 
     @Override

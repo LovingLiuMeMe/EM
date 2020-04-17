@@ -54,7 +54,7 @@ public interface RecordMapper {
      */
     int updateByPrimaryKey(Record record);
 
-    List<Record> selectByUserId(int userId);
+    List<RecordVO> selectByUserId(int userId);
 
     List<RecordVO> selectListByStatus(int status);
 

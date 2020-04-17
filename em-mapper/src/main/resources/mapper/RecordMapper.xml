@@ -154,12 +154,6 @@
       updated_time = #{updatedTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="int">
-    select
-    <include refid="Base_Column_List"/>
-    from em_record
-    where user_id = #{userId}
-  </select>
 
   <resultMap id="RecordVOMap" type="cn.lovingliu.pojo.vo.RecordVO">
     <!--
@@ -174,9 +168,34 @@
     <result column="count" jdbcType="INTEGER" property="count" />
     <result column="user_name" jdbcType="VARCHAR" property="userNumber" />
     <result column="user_number" jdbcType="VARCHAR" property="userNumber" />
+    <result column="equipment_name" jdbcType="VARCHAR" property="equipmentName" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
     <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
   </resultMap>
+
+  <select id="selectByUserId" parameterType="int" resultMap="RecordVOMap">
+    select
+      r.id,
+      r.equipment_id,
+      r.user_id,
+      r.status,
+      r.count,
+      u.name as user_name,
+      u.number as user_number,
+      e.name as equipment_name,
+      r.created_time,
+      r.updated_time
+    from
+        em_record r
+    left join
+        em_user u
+    on r.user_id = u.id
+    left join
+        em_equipment e
+    on r.equipment_id = e.id
+    where r.user_id = #{userId}
+  </select>
+
   <select id="selectListByStatus" parameterType="int" resultMap="RecordVOMap">
     select
       r.id,
@@ -186,6 +205,7 @@
       r.count,
       u.name as user_name,
       u.number as user_number,
+      e.name as equipment_name,
       r.created_time,
       r.updated_time
     from
@@ -193,6 +213,9 @@
     left join
         em_user u
     on r.user_id = u.id
+    left join
+        em_equipment e
+    on r.equipment_id = e.id
     where r.status = #{status}
   </select>
 
