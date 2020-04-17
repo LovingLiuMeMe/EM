@@ -166,7 +166,7 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="count" jdbcType="INTEGER" property="count" />
-    <result column="user_name" jdbcType="VARCHAR" property="userNumber" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_number" jdbcType="VARCHAR" property="userNumber" />
     <result column="equipment_name" jdbcType="VARCHAR" property="equipmentName" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
